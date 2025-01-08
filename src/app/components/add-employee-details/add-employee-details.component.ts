@@ -60,34 +60,32 @@ export const MY_FORMATS = {
 };
 
 @Component({
-  selector: 'app-add-employee-details',
-  standalone: true,
-  imports: [
-    FormsModule,
-    CommonModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatNativeDateModule,
-    MatIconModule,
-    MatBottomSheetModule
-  ],
-  providers: [
-     EmployeeListComponent,
-      provideNativeDateAdapter(),
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE],
-    },
-
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
-  ],
-  schemas: [NO_ERRORS_SCHEMA],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './add-employee-details.component.html',
-  styleUrl: './add-employee-details.component.scss',
+    selector: 'app-add-employee-details',
+    imports: [
+        FormsModule,
+        CommonModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatNativeDateModule,
+        MatIconModule,
+        MatBottomSheetModule
+    ],
+    providers: [
+        EmployeeListComponent,
+        provideNativeDateAdapter(),
+        {
+            provide: DateAdapter,
+            useClass: MomentDateAdapter,
+            deps: [MAT_DATE_LOCALE],
+        },
+        { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    ],
+    schemas: [NO_ERRORS_SCHEMA],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './add-employee-details.component.html',
+    styleUrl: './add-employee-details.component.scss'
 })
 export class AddEmployeeDetailsComponent {
   readonly customHeader = customHeader;
@@ -260,9 +258,9 @@ export class AddEmployeeDetailsComponent {
 }
 /** Custom header component for datepicker. */
 @Component({
-  selector: 'customHeader',
-  styles: [
-    `
+    selector: 'customHeader',
+    styles: [
+        `
       .quick-actions {
         margin-top: 4px;
         display: flex;
@@ -293,8 +291,8 @@ export class AddEmployeeDetailsComponent {
         margin: -22%;
       }
     `,
-  ],
-  template: `
+    ],
+    template: `
     <div class="quick-actions">
       <button
         type="button"
@@ -342,7 +340,8 @@ export class AddEmployeeDetailsComponent {
       >
     </div>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class customHeader<D = null> implements OnDestroy {
   readonly picker = viewChild.required<MatDatepicker<Date>>('today');
@@ -419,25 +418,27 @@ export class customHeader<D = null> implements OnDestroy {
   }
 }
 @Component({
-  selector: 'EditsnackBarComponent',
-  template: ` <span>Record updated successfully ! </span> `,
-  styles: ``,
+    selector: 'EditsnackBarComponent',
+    template: ` <span>Record updated successfully ! </span> `,
+    styles: ``,
+    standalone: false
 })
 export class EditsnackBarComponent {}
 
 @Component({
-  selector: 'AddSnackBarComponent',
-  template: ` <span>Record added successfully ! </span> `,
-  styles: ``,
+    selector: 'AddSnackBarComponent',
+    template: ` <span>Record added successfully ! </span> `,
+    styles: ``,
+    standalone: false
 })
 export class AddSnackBarComponent {}
 
 // bottom sheet component
 @Component({
-  selector: 'BottomSheetComponent',
-  providers:[],
-  template:`<span>Hiiii</span>`,
-  
+    selector: 'BottomSheetComponent',
+    providers: [],
+    template: `<span>Hiiii</span>`,
+    standalone: false
 })
 export class BottomSheetComponent {
   private _bottomSheetRef =

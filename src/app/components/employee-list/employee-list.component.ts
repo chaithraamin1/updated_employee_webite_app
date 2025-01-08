@@ -5,11 +5,10 @@ import { CommonModule } from '@angular/common';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-employee-list',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './employee-list.component.html',
-  styleUrl: './employee-list.component.scss',
+    selector: 'app-employee-list',
+    imports: [CommonModule],
+    templateUrl: './employee-list.component.html',
+    styleUrl: './employee-list.component.scss'
 })
 export class EmployeeListComponent {
   private _snackBar = inject(MatSnackBar);
@@ -64,9 +63,10 @@ export class EmployeeListComponent {
   }
 }
 @Component({
-  selector: 'snackBarComponent',
-  template: ` <span>Record deleted successfully ! </span> `,
-  styles: ``,
+    selector: 'snackBarComponent',
+    template: ` <span>Record deleted successfully ! </span> `,
+    styles: ``,
+    standalone: false
 })
 export class snackBarComponent {
   snackBarRef = inject(MatSnackBarRef);
